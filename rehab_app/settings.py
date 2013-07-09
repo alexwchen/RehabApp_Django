@@ -107,6 +107,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'rehab_app.urls'
 LOGIN_URL = '/login/'
+AUTH_PROFILE_MODULE = 'portal.UserProfile'
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'rehab_app.wsgi.application'
@@ -127,6 +128,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'portal',
+    #'south',
 )
 
 # A sample logging configuration. The only tangible logging
