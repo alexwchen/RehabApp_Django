@@ -7,4 +7,6 @@ urlpatterns = patterns('',
     (r'^$', portal_main_page),
     (r'^test$', user_test),
 
+    
+    (r'^article/(?P<article_name>\w+)$', ourhistory),
 )

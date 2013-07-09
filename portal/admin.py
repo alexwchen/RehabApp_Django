@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 from portal.models import project
 from portal.models import user_project
+from portal.models import article
 
 class portal_projects_Admin(admin.ModelAdmin):                             
     fieldsets = [
@@ -19,6 +20,13 @@ class portal_user_projects_Admin(admin.ModelAdmin):
     ]
 
 admin.site.register(user_project, portal_user_projects_Admin)
+
+class portal_article_Admin(admin.ModelAdmin):
+    fieldsets = [
+    ('Title', {'fields':['title', 'authors', 'text']}),
+    ]
+admin.site.register(article, portal_article_Admin)
+
 
 class ProjectInline(admin.StackedInline):
     model = user_project

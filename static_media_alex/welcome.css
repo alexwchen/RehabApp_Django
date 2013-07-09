@@ -1,4 +1,4 @@
-#login
+/*#login
 {
     font-family:Arial;    
     font-size:20px;
@@ -10,4 +10,78 @@
 {
     font-family:Arial;    
     font-size:20px;
+}*/
+
+.row
+{
+	//border: 5px solid red;
 }
+
+.span4
+{
+	border: 1px solid red;
+	margin-left:300px;
+}
+
+.login_register_button
+{
+	background-color:#99CCFF;
+	margin-top:10px;
+	border-radius: 15px;
+	height:80px;
+	color:#006B8F;
+	cursor:pointer;
+}
+
+#login_register_inner_button_1
+{
+	margin-top:25px;
+	margin-left:110px;
+	font-size:60px;
+}
+
+#login_register_inner_button_2
+{
+	margin-top:25px;
+	margin-left:150px;
+	font-size:60px;
+}
+
+#start_button
+{
+	cursor:pointer;
+	background-color:#85E085;
+	height: 300px;
+	border-radius: 15px;
+}
+#rehab_title
+{
+	height:100px;
+	width:700px;
+	margin-top:40px;
+	margin-left:10px;
+	font-size:40px;
+	color:#29527A;
+	font-family:"Times New Roman";
+	font:center;
+}
+
+#title
+{
+	color: #29527A; 
+	font-size:30px;
+}
+
+#start_inner
+{
+	color:#007A3D;
+	margin-top:130px;
+	margin-left:370px;
+	font:center;
+	font-size:70px;
+}
+/*#background_img
+{
+	background-image:url('/static_media_alex/Rehab_building.jpg');
+	background-repeat:repeat-x;
+}*/

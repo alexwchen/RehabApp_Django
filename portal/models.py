@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 class project(models.Model):
     title = models.CharField(max_length=200)
     authors = models.CharField(max_length=200)
-
     def __unicode__(self):
         return self.title
 
@@ -18,7 +17,12 @@ class user_project(models.Model):
     # The rest is completely up to you
     title = models.CharField(max_length=200)
     authors = models.CharField(max_length=200)
-
     def __unicode__(self):
         return self.title
     
+class article(models.Model):
+    title = models.CharField(max_length = 200)
+    authors = models.CharField(max_length = 200)
+    text = models.TextField(max_length = 400)
+    def __unicode__(self):
+        return self.title

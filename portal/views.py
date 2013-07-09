@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
 from portal.models import project 
+from portal.models import article
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
 #from django.views.decorators.csrf import csrf_protect
@@ -14,7 +15,27 @@ def portal_main_page(request):
     If users are authenticated, direct them to the main page. Otherwise, take
     them to the login page.
     """
-    return render_to_response('portal/portal.html')
+    all_article = article.objects.all()
+    default = article.objects.filter(id = 1)[0]
+
+    return render_to_response('portal/portal.html',
+    {
+        'article':all_article,
+        'default':default
+    }
+    )
+#test how to call the article specificly
+def ourhistory(request, article_name):
+    link = article_name.split('_')
+    link = ' '.join(link)
+    specific_article = article.objects.filter(title = link)[0]
+    
+
+    return render_to_response('portal/ourhistory.html',
+    {
+        'ourhistory':specific_article
+    }
+    )
 
 
 def user_test(request):

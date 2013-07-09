@@ -1,0 +1,35 @@
+#error_login
+{
+	color:red;
+	font-size:15px;
+}
+#error_sign_pos
+{
+	margin-left:250px;
+}
+
+/*IATSL*/
+#rehab_title
+{
+	height:100px;
+	width:700px;
+	margin-top:40px;
+	margin-left:10px;
+	font-size:40px;
+	color:#29527A;
+	font-family:"Times New Roman";
+	font:center;
+}
+
+/*Full name of IATSL*/
+#title 
+{
+	color: #29527A; 
+	font-size:30px;
+}
+
+/*input box pos*/
+.input_box_pos
+{
+	margin-left:345px;
+}

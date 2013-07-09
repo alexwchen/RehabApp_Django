@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
     <link rel="stylesheet" type="text/css" href="/static_media_alex/welcome.css" />
     <h1>Start</h1>
 </header>
@@ -9,4 +9,83 @@
 
 <section>
     <a id="register" href="/portal/">Register</a>
-</section>
+</section> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+	<meta charset="utf-8"> 
+	<title>welcome page</title> 
+	<meta name="description" content="Creating a 16 columns Grid with Twitter Bootstrap. Learn with examples to create a Grid System in Twitter Bootstrap."> 
+	<link href="/static_media_alex/bootstrap.css" rel="stylesheet"> 
+	
+	<!-- Harrison Style -->
+	<link href="/static_media_alex/welcome.css" rel="stylesheet" type="text/css" /> 
+
+	
+</head>
+
+<body>
+	<!-- <div id="background_img"> -->
+		<div class="container">
+		
+			<!-- LOGO + Title -->
+			<div class = "row">
+				<div class='span3'>
+					<img border = "0" src = "/static_media_alex/Rehab_logo.jpeg" width = "250" height = "180">
+				</div>
+				<div class = "span9">
+					<div id='rehab_title'> <!-- IATSL -->
+						<b><em>I.A.T.S.L.</em></b>
+						<br>
+						<br>
+						<p id="title"> <!-- full name of IATSL -->
+							Intelligent Assistive Technology and System Lab
+						</p>
+					</div>
+				</div>	
+			</div>
+		
+			<!-- Start Button -->
+			<div class="row">
+				<section>
+					<a href="/portal/">
+						<div class='span12' id="start_button">
+							<div id='start_inner'>
+								<b>Start</b>
+				    		</div>
+						</div>
+					</a>
+				</sectoin>
+			</div>
+
+
+			<!-- Login + Register -->
+			<div class="row">
+				<section>
+					<a href="/portal/">
+						<div class='span6 login_register_button'>
+							<div id="login_register_inner_button_1">
+								<b>Register</b>
+					
+							</div>
+						</div>
+					</a>
+				</section>
+				<section>
+					<a href="/portal/">
+						<div class='span6 login_register_button'>
+							<div id="login_register_inner_button_2">
+								<b>Login</b>
+							</div>
+						</div>
+					</a>
+				</section>		
+			</div>
+		</div>
+	<!-- </div> -->
+	<script type='text/javascript' src="/static_media_alex/jquery.js"></script>
+	<script src="/static_media_alex/welcome.js"></script>
+	</body>
+</html>

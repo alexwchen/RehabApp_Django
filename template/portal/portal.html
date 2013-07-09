@@ -5,7 +5,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="chrome=1">
-		<link rel="stylesheet" type="text/css" href="/static_media_alex/portal/portal.css" />
+		<title>record page</title> 
+		<meta name="description" content="Creating a 16 columns Grid with Twitter Bootstrap. Learn with examples to create a Grid System in Twitter Bootstrap."> 
+		<link href="/static_media_alex/bootstrap.css" rel="stylesheet"> 
+
+		<!-- Harrison Style -->
+		<link href="/static_media_alex/portal/portal.css" rel="stylesheet" type="text/css" />
     </head>
 
 
@@ -20,28 +25,82 @@
 #########################################################
 -->
 
+<div class="container">
+	
+	<!-- LOGO + Title -->
+	<div class = "row">
+		<div class='span3'>
+			<img border = "0" src = "/static_media_alex/Rehab_logo.jpeg" width = "250" height = "180">
+		</div>
+		<div class = "span9">
+			<div id='rehab_title'> <!-- IATSL -->
+				<b><em>I.A.T.S.L.</em></b>
+				<br>
+				<br>
+				<p id="title"> <!-- full name of IATSL -->
+					Intelligent Assistive Technology and System Lab
+				</p>
+			</div>
+		</div>	
+	</div>
+	
+	
+	<!--article title box-->
+	<div class="form-horizontal">
+		<label id="article_title_text_before_options">
+			Articles: 
+		</lable>
+		
+			<select id='select_category'>
+				{% if article %}
+				    <ul>
+				    {% for articles in article %}
+				        <li>
+							<option>
+								{{ articles.title }}	
+							</option>
+						</li>
+				    {% endfor %}
+				    </ul>
+				{% else %}
+				    <p>No articles are available.</p>
+				{% endif %}
+			</select>
+			
+		<lable id="article_author">
+			Author:
+			<lable id="article_author_detail">{{ default.authors}} </lable>
+		</lable>
+	</div>
+	
+	
+	
+	
+	<section>
+      	<div class="span12_box">
+	    	<p class="justify_text">
+				{{default.text}}
+	        </p>
+	    </div>
+	</section>
+	
+	
 
-<section>
-        <a id='logout' href="/logout/">logout</a></li>
-        <div id='textbox'>
-            <p>
-                he Battle of Quebec was fought on December 31, 1775, early in the American Revolutionary War, between American Continental Army forces and the British defenders of the city of Quebec. The battle was the first major defeat of the war for the Americans, and it came at a high price: General Richard Montgomery (pictured) was killed, Benedict Arnold was wounded, and Daniel Morgan and more than 400 men were taken prisoner. The city's garrison, led by Quebec's provincial governor, General Guy Carleton, suffered few casualties. Montgomery's army had earlier captured Montreal, and then joined Arnold's forces. Carleton had escaped from Montreal to Quebec, and last-minute reinforcements arrived to bolster the city's limited defenses. Concerned that expiring enlistments would reduce his force, Montgomery made the end-of-year attack in a blinding snowstorm to conceal his army's movements. Montgomery's force turned back after he was killed by cannon fire; Arnold was injured early in the attack, and Morgan then led the assault until he became trapped and had to surrender. Arnold and the Americans maintained an ineffectual blockade of the city until spring, when British reinforcements a
 
-            </p>
-        </div>
-        
-</section>
+ 	<button onclick="startRecording(this)" class="btn btn-success btn-large" id="start_button">RECORD</button><button onclick="stopRecording(this)" disabled="" class="btn btn-danger btn-large" id="stop_button">STOP</button>
 
+	<a id='logout' href="/logout/">
+		<button class="btn btn-warning">LOGOUT</button>
+	</a>
+	
+  	<ul id="recordingslist"></ul>
 
- <button onclick="startRecording(this)">record</button><button onclick="stopRecording(this)" disabled="">stop</button>
-
-  <ul id="recordingslist"></ul>
-
-  <pre id="log">
+  	<pre id="log">
 Audio context OK 
-navigator.getUserMedia OK </pre>
+navigator.getUserMedia OK 
+	</pre>
 
-
+</div>
 <!-- 
 #########################################################
 #########################################################
@@ -52,6 +111,10 @@ navigator.getUserMedia OK </pre>
 #########################################################
 -->
 
+
+<!-- portal script -->
+<script type='text/javascript' src="/static_media_alex/jquery.js"></script>
+<script src="/static_media_alex/portal.js"></script>
 
 <!--audio script -->
 <script src="/static_media_alex/audio/recorder.js"></script>
@@ -68,6 +131,7 @@ navigator.getUserMedia OK </pre>
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
+
 
 </body>
 </head>

@@ -1,30 +1,78 @@
-<header>
-    <h1>Django Consultants</h1>
-    <h2>Login Page</h2>
-</header>
+<!-- Login page with two input boxes and sign in button -->
 
-<section>
-    {% if form.errors %}
-        <p>Your username and password didn't match, please try again.</p>
-    {% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+	<meta charset="utf-8"> 
+	<title>login page</title> 
+	<meta name="description" content="Twitter Bootstrap Version2.0 default form layout example from w3resource.com."> 
+	<link href="/static_media_alex/bootstrap.css" rel="stylesheet"> 
+	
+	<!-- Harrison Style -->
+	<link href="/static_media_alex/login.css" rel="stylesheet" type="text/css" /> 
+</head>
 
-    <form method="post" action={% url 'django.contrib.auth.views.login' %}>
-    {% csrf_token %}
-        <p>
-            <label for="id_username">Username:</label>
-            {{ form.username }}
-        </p>
-        <p>
-            <label for="id_password">Password:</label>
-            {{ form.password }}
-        </p>
+<body>
+	<div class="container">
+		
+		<!-- LOGO + Title -->
+		<div class = "row">
+			<div class='span3'>
+				<img border = "0" src = "/static_media_alex/Rehab_logo.jpeg" width = "250" height = "180">
+			</div>
+			<div class = "span9">
+				<!--IATSL-->
+				<div id='rehab_title'>
+					<b><em>I.A.T.S.L.</em></b>
+					<br>
+					<br>
+					<!--full name of IATSL-->
+					<p id="title">
+						Intelligent Assistive Technology and System Lab
+					</p>
+				</div>
+			</div>	
+		</div>
+	
+		<section>
+		    <!-- {% if form.errors %}
+		    		        <p>Your username and password didn't match, please try again.</p>
+		    		    {% endif %} -->
 
-        {% if next %}
-            <input type="hidden" name="next" value="{{ next }}" />
-        {% else %}
-            <input type="hidden" name="next" value="/portal/" />
-        {% endif %}
-        <input type="submit" value="login" />
-    </form>
-</section>
+		    <form class='well' method="post" action={% url 'django.contrib.auth.views.login' %}>
+		    {% csrf_token %}
+		        <div class="input_box_pos">
+					<p>
+			            <label for="id_username">Username:</label>
+			            {{ form.username }}
+			        </p>
+			        <p>
+			            <label for="id_password">Password:</label>
+			            {{ form.password }}
+			        </p>
 
+			        {% if next %}
+			            <input type="hidden" name="next" value="{{ next }}" />
+			        {% else %}
+			            <input type="hidden" name="next" value="/portal/" />
+			        {% endif %}
+			        <input type="submit" class="btn btn-primary" value="Sign In" />
+				</div>
+				
+				<div id="error_sign_pos">
+					{% if form.errors %}
+						<br>
+				        <p id="error_login">Your username and password didn't match, please try again.</p>
+				    {% endif %}
+				</div>
+				
+		    </form>
+		</section>
+		
+	</div>
+	
+	
+	
+	
+</body>
