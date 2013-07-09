@@ -6,7 +6,9 @@ from django.forms.extras.widgets import SelectDateWidget
 from django.contrib.auth.models import User
 GENDER_CHOICES = (('female', 'Female'),('male', 'Male'))
 
-
+######################
+# User Registration Form
+######################
 class Registration_Form(forms.Form):
     username = forms.CharField(max_length=100)
     email = forms.EmailField(required=False)
@@ -14,6 +16,9 @@ class Registration_Form(forms.Form):
     password2 = forms.CharField(widget=forms.PasswordInput())
     gender = forms.MultipleChoiceField(required=True,widget=CheckboxSelectMultiple, choices=GENDER_CHOICES)
 
+    ######################
+    # feild indivisual check
+    ######################
     def clean_username(self):
         newusername = self.cleaned_data['username']
         all_username = [] 
@@ -26,6 +31,9 @@ class Registration_Form(forms.Form):
         
         return newusername
     
+    ######################
+    # mix feild check
+    ######################
     def clean(self):
         cleaned_data = super(Registration_Form, self).clean()
         try:
