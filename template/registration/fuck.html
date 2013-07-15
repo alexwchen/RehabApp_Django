@@ -63,13 +63,13 @@
 				        </div>
 
 				        <div class="field">
-				            <label for="id_password1" class="field_font">Password:</label>
+				            <label for="id_password1" class="field_font">Password1:</label>
 				            {{ form.password1 }}
 							<span class="help-inline">{{ form.password1.errors }}</span>
 				        </div>
 
 				        <div class="field">
-				            <label for="id_password2" class="field_font">Password Confirmation:</label>
+				            <label for="id_password2" class="field_font">Password2:</label>
 				            {{ form.password2 }} 
 							<span class="help-inline">{{ form.password2.errors }}</span>
 				        </div>
@@ -80,13 +80,31 @@
 							</label>
 				            {{ form.gender }}
 				        </div>
-				        <input style="width:300px" type="submit" value="Submit" class= "btn btn-success btn btn-large submit_button_pos">										
+				        <input type="submit" value="Submit" class= "btn btn-success btn btn-large submit_button_pos">										
 					</form>		        
-					<a href="/home">
-						<button class="btn btn-danger btn btn-default cancel_button_pos">Cancel</button>
-					</a>
 				</div>
-			</div>	
+			</div>
+		
+		<a href="/home">
+			<button class="btn btn-danger btn btn-default cancel_button_pos">Cancel</button>
+		</a>
+		
+		
+		<div class='fuck'>	
+			<input type="submit" value="Submit" class="fuck">
 		</div>
+		
+		<form action="/portal/register" method="post">				
+			{% csrf_token %}
+
+	        <div class="field">
+	            <label for="id_gender" class="field_font">Gender : 
+					<span class="help-inline">{{ form.gender.errors }}</span> 
+				</label>
+	            {{ form.gender }}
+	        </div>
+	        <input type="submit" value="Submit" class="fuck"/>										
+		</form>		        
+		
     </body>
 </html>

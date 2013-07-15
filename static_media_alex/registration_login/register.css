@@ -1,0 +1,51 @@
+#rehab_title
+{
+	height:100px;
+	width:700px;
+	margin-top:40px;
+	margin-left:10px;
+	font-size:40px;
+	color:#29527A;
+	font-family:"Times New Roman";
+	font:center;
+}
+
+#title
+{
+	color: #29527A; 
+	font-size:30px;
+}
+
+.span12_box
+{
+	border: 7px groove #666699;
+	background-color:#F0F0F5;
+	border-radius: 15px;
+}
+
+.field_pos
+{
+	margin-left:250px;	
+}
+
+.field_font
+{
+	font-size:17px;
+	margin-top:7px;
+	
+}
+
+.submit_button_pos
+{
+	margin-left:5px;
+}
+
+.cancel_button_pos
+{
+	margin-left:5px;
+	margin-bottom:15px;
+	width:300px;
+	
+	font-size:20px;
+}
+

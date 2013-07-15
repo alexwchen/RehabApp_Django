@@ -8,5 +8,7 @@ urlpatterns = patterns('',
     (r'^register$', register),
 
     
-    (r'^article/(?P<article_name>\w+)$', ourhistory),
+    (r'^article/(?P<article_name>\w+)$', get_article_text),
+
+    (r'^article/(?P<article_name>\w+)/author$', get_article_author),
 )

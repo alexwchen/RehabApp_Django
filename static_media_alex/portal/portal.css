@@ -39,12 +39,12 @@
 	font-size:18px;
 }
 
-#article_author
+#article_author_pos
 {
 	margin-left:50px;
 }
 
-#article_author_detail
+#article_author
 {
 	color:blue;
 	font-size:18px;
@@ -61,9 +61,11 @@
 	border-radius: 15px;
 }
 
-.justify_text
+.article_justify_text
 {
 	text-align: justify;
+	line-height:1.5;
+	font-size: 17px;
 }
 
 

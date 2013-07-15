@@ -67,9 +67,9 @@
 				{% endif %}
 			</select>
 			
-		<lable id="article_author">
+		<lable id="article_author_pos">
 			Author:
-			<lable id="article_author_detail">{{ default.authors}} </lable>
+			<lable id="article_author">{{ default.authors }} </lable>
 		</lable>
 	</div>
 	
@@ -78,8 +78,8 @@
 	
 	<section>
       	<div class="span12_box">
-	    	<p class="justify_text">
-				{{default.text}}
+	    	<p class="article_justify_text">
+				{{ default.text }}
 	        </p>
 	    </div>
 	</section>
@@ -114,7 +114,7 @@ navigator.getUserMedia OK
 
 <!-- portal script -->
 <script type='text/javascript' src="/static_media_alex/jquery.js"></script>
-<script src="/static_media_alex/portal.js"></script>
+<script src="/static_media_alex/portal/portal.js"></script>
 
 <!--audio script -->
 <script src="/static_media_alex/audio/recorder.js"></script>

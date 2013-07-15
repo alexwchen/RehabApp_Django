@@ -1,6 +1,5 @@
 from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
-from portal.models import project 
 from portal.models import article
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
@@ -10,7 +9,7 @@ from django.shortcuts import render
 
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
-
+from django.http import HttpResponse
 
 from portal.models import user_extra_field
 
@@ -31,17 +30,19 @@ def portal_main_page(request):
     )
 
 #test how to call the article specificly
-def ourhistory(request, article_name):
+def get_article_text(request, article_name):
     link = article_name.split('_')
     link = ' '.join(link)
     specific_article = article.objects.filter(title = link)[0]
-    
 
-    return render_to_response('portal/ourhistory.html',
-    {
-        'ourhistory':specific_article
-    }
-    )
+    return HttpResponse(specific_article.text)
+   
+def get_article_author(request, article_name):
+    link = article_name.split('_')
+    link = ' '.join(link)
+    specific_article_author = article.objects.filter(title = link)[0]
+
+    return HttpResponse(specific_article_author.authors)
 
 #################################
 # User Registration Handling
@@ -68,7 +69,7 @@ def register(request):
 
             return HttpResponseRedirect('/login')
         else:
-            print register_form.errors
+            print register_form
             return render(request, 'registration/register.html', {'form': register_form})
         
     else:

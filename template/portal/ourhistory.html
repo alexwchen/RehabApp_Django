@@ -4,7 +4,7 @@
 	</head>
 	
 	<body>
-		{% if ourhistory %}
-			{{ ourhistory.text }}
+		{% if get_article_text %}
+			{{ get_article_text.text }}
 		{% endif %}
 	</body>
