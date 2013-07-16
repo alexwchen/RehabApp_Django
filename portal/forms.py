@@ -48,4 +48,11 @@ class Registration_Form(forms.Form):
         return cleaned_data
 
 
-
+######################
+# User Audio File Upload Form
+######################
+class DocumentForm(forms.Form):
+    docfile = forms.FileField(
+        label='Select a file',
+        help_text='max. 42 megabytes'
+    )

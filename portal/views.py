@@ -5,28 +5,45 @@ from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
 from django.views.decorators.csrf import csrf_protect
 from portal.forms import Registration_Form
+from portal.forms import DocumentForm
 from django.shortcuts import render
 
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
+from django.template import RequestContext
 
 from portal.models import user_extra_field
+from portal.models import user_audio
 
+"""
+If users are authenticated, direct them to the main page. Otherwise, take
+them to the login page.
+"""
+@csrf_protect
 @login_required
 def portal_main_page(request):
-    """
-    If users are authenticated, direct them to the main page. Otherwise, take
-    them to the login page.
-    """
+    # Handle file upload
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            newdoc = user_audio(user=request.user, docfile = request.FILES['docfile'])
+            newdoc.save()
+            return HttpResponseRedirect('/portal/')
+        else:
+            form = DocumentForm()
+
     all_article = article.objects.all()
     default = article.objects.filter(id = 1)[0]
 
     return render_to_response('portal/portal.html',
     {
         'article':all_article,
-        'default':default
-    }
+        'default':default,
+        'form':DocumentForm()
+
+    },
+     context_instance=RequestContext(request)
     )
 
 #test how to call the article specificly
@@ -75,5 +92,9 @@ def register(request):
     else:
         register_form = Registration_Form()
     return render(request, 'registration/register.html', {'form': register_form})
+
+
+
+
 
 

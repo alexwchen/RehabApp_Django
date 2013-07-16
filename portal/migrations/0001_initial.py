@@ -8,30 +8,41 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'project'
-        db.create_table(u'portal_project', (
+        # Adding model 'article'
+        db.create_table(u'portal_article', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=200)),
             ('authors', self.gf('django.db.models.fields.CharField')(max_length=200)),
+            ('text', self.gf('django.db.models.fields.TextField')(max_length=400)),
         ))
-        db.send_create_signal(u'portal', ['project'])
+        db.send_create_signal(u'portal', ['article'])
 
-        # Adding model 'user_project'
-        db.create_table(u'portal_user_project', (
+        # Adding model 'user_extra_field'
+        db.create_table(u'portal_user_extra_field', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'], unique=True)),
-            ('title', self.gf('django.db.models.fields.CharField')(max_length=200)),
-            ('authors', self.gf('django.db.models.fields.CharField')(max_length=200)),
+            ('user', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['auth.User'], unique=True)),
+            ('gender', self.gf('django.db.models.fields.CharField')(max_length=100)),
         ))
-        db.send_create_signal(u'portal', ['user_project'])
+        db.send_create_signal(u'portal', ['user_extra_field'])
+
+        # Adding model 'user_audio'
+        db.create_table(u'portal_user_audio', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
+            ('docfile', self.gf('django.db.models.fields.files.FileField')(max_length=100)),
+        ))
+        db.send_create_signal(u'portal', ['user_audio'])
 
 
     def backwards(self, orm):
-        # Deleting model 'project'
-        db.delete_table(u'portal_project')
+        # Deleting model 'article'
+        db.delete_table(u'portal_article')
 
-        # Deleting model 'user_project'
-        db.delete_table(u'portal_user_project')
+        # Deleting model 'user_extra_field'
+        db.delete_table(u'portal_user_extra_field')
+
+        # Deleting model 'user_audio'
+        db.delete_table(u'portal_user_audio')
 
 
     models = {
@@ -71,18 +82,24 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
-        u'portal.project': {
-            'Meta': {'object_name': 'project'},
+        u'portal.article': {
+            'Meta': {'object_name': 'article'},
             'authors': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'text': ('django.db.models.fields.TextField', [], {'max_length': '400'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '200'})
         },
-        u'portal.user_project': {
-            'Meta': {'object_name': 'user_project'},
-            'authors': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
+        u'portal.user_audio': {
+            'Meta': {'object_name': 'user_audio'},
+            'docfile': ('django.db.models.fields.files.FileField', [], {'max_length': '100'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']", 'unique': 'True'})
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"})
+        },
+        u'portal.user_extra_field': {
+            'Meta': {'object_name': 'user_extra_field'},
+            'gender': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'user': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['auth.User']", 'unique': 'True'})
         }
     }
 

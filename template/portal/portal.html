@@ -84,7 +84,17 @@
 	    </div>
 	</section>
 	
-	
+    <form action="/portal/" method="post" enctype="multipart/form-data">	
+        {% csrf_token %}
+      
+        <p>{{ form.non_field_errors }}</p> 
+        <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+        <p>
+            {{ form.docfile.errors }} 
+            {{ form.docfile }}
+        </p>
+        <p><input type="submit" value="Upload" /></p> 
+    </form>
 
 
  	<button onclick="startRecording(this)" class="btn btn-success btn-large" id="start_button">RECORD</button><button onclick="stopRecording(this)" disabled="" class="btn btn-danger btn-large" id="stop_button">STOP</button>

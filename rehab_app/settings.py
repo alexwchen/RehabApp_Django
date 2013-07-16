@@ -128,7 +128,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'portal',
-    #'south',
 )
 
 # A sample logging configuration. The only tangible logging
