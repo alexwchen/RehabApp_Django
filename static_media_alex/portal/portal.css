@@ -1,6 +1,6 @@
 #logout
 {
-    margin-left:590px;
+    float:right;
 	font-family:Arial;
 }
 
@@ -25,7 +25,14 @@
 
 #start_button
 {
-	margin-left:20px;
+	margin-left:23px;
+}
+
+.start_button_special_font
+{
+	color:green;
+	font-size:22px;
+	font-weight:bold;
 }
 
 #stop_button
@@ -33,22 +40,39 @@
 	margin-left:10px;
 }
 
+.stop_button_special_font
+{
+	color:red;
+	font-size:22px;
+	font-weight:bold;
+	opacity:0.9;
+}
+
+
 #article_title_text_before_options
 {
-/*	margin-right:30px;*/
 	font-size:18px;
+/*	border: 1px solid purple;*/
 }
 
 #article_author_pos
 {
+/*	border: 1px solid gray;*/
 	margin-left:50px;
+	font-size:18px;
 }
 
 #article_author
 {
+/*	border: 1px solid red;*/
 	color:blue;
 	font-size:18px;
-	margin-left:15px;
+	margin-left:10px;
+}
+
+.logout_button_pos
+{
+	border: 1px solid red;
 }
 
 .span12_box
@@ -56,7 +80,9 @@
 	margin-right:25px;
 	margin-top:10px;
 	margin-bottom:10px;
-	border: 3px #666699;
+	padding-left:5px;
+	padding-right:5px;
+	border: 1px dashed #666699;
 	background-color:#F0F0F5;
 	border-radius: 15px;
 }
@@ -71,6 +97,75 @@
 
 
 
+
+/***
+****** steps css************
+***/
+.steps_outter_box
+{
+	padding:7px;
+	border:2px solid #29527A;
+	border-radius: 15px;
+}
+
+.steps_title
+{
+	color:#29527A;
+}
+
+.steps_instruction
+{
+	font-size:28px;
+	color:#29527A;
+	font-weight:bold;
+	font-family:Arial;
+}
+
+.instruction_list_font
+{
+	font-size:19px;
+}
+
+li
+{
+	line-height:1.4;
+}
+
+.allow_button_for_Chrome
+{
+	color:#335C85;
+	font-size:22px;
+	font-weight:bold;
+}
+
+/*************************/
+
+.upload_help_text
+{
+	margin-left:15px;
+}
+
+#upload_button
+{
+	margin-left:15px;
+}
+
+.upload_button_special_font
+{
+	color:blue;
+	font-size:22px;
+	font-weight:bold;
+}
+
+
+/**** stpe3 ****/
+
+.analyze_button
+{
+	margin-left:15px;
+}
+
+/****************/
 
 
 
